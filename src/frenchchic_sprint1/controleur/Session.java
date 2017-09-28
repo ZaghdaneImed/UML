@@ -6,7 +6,7 @@ public class Session {
 
     public enum TypeEcran {
         ECRAN_ACCUEIL,
-        ECRAN_LOGIN
+        ECRAN_ACCUEIL_PERSO
 
     }
     private TypeEcran typeEcran;
@@ -25,7 +25,7 @@ public class Session {
     }
 
     public TypeEcran afficherEcranLogin() {
-        return TypeEcran.ECRAN_LOGIN;
+        return TypeEcran.ECRAN_ACCUEIL_PERSO;
     }
     
     public static void traiterConnexion(){
