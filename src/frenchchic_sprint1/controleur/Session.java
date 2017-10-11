@@ -32,23 +32,8 @@ public class Session {
             new VueJetable();
         }
     }
-
-    public void setTypeEcran(TypeEcran typeEcran) {
-        this.typeEcran = typeEcran;
-        Window[] windows = Window.getWindows();
-        for (int i = 0; i < windows.length; i++) {
-            windows[i].dispose();
-        }
-        if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL) {
-            VueJetable.getWindows()[0].setVisible(true);
-        }
-        if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL_PERSO) {
-            new EcranAccueilPerso().setVisible(true);
-        }
-    }
-
+    
     public void traiterIdentificatin(String pseudo, String password) {
-        System.out.println("inf given " + pseudo + " " + password);
         if ("marie".equals(pseudo) && "123456".equals(password)) {
             clientSession = Client.rechrcheClientParPseudo(pseudo);
             this.setTypeEcran(TypeEcran.ECRAN_ACCUEIL_PERSO);
@@ -57,5 +42,21 @@ public class Session {
             System.out.println("not logged in");
         }
     }
+    
+    public void setTypeEcran(TypeEcran typeEcran) {
+        this.typeEcran = typeEcran;
+        Window[] windows = Window.getWindows();
+        for (int i = 0; i < windows.length; i++) {
+            windows[i].dispose();
+        }
+        if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL) {
+            new VueJetable().setVisible(true);
+        }
+        if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL_PERSO) {
+            new EcranAccueilPerso().setVisible(true);
+        }
+    }
+
+
 
 }

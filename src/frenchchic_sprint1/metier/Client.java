@@ -5,15 +5,20 @@
  */
 package frenchchic_sprint1.metier;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  *
  * @author MAROUANE
  */
 public class Client {
+
     private String nom;
     private String prenom;
     private String pseudo;
     private String motDePasse;
+    private Collection<Produit> panier;
 
     public String getPseudo() {
         return pseudo;
@@ -24,6 +29,7 @@ public class Client {
         this.prenom = prenom;
         this.pseudo = pseudo;
         this.motDePasse = motDePasse;
+        this.panier = new ArrayList<>();
     }
 
     public String getNom() {
@@ -37,9 +43,9 @@ public class Client {
     public String getMotDePasse() {
         return motDePasse;
     }
-    
-    public static Client rechrcheClientParPseudo(String pseudo){
+
+    public static Client rechrcheClientParPseudo(String pseudo) {
         return new Client("Dupon", "Marie", pseudo, "123456");
     }
-    
+
 }
