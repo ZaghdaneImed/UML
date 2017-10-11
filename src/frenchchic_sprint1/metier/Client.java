@@ -14,4 +14,24 @@ public class Client {
     private String prenom;
     private String pseudo;
     private String motDePasse;
+
+    public Client(String nom, String prenom, String pseudo, String motDePasse) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.pseudo = pseudo;
+        this.motDePasse = motDePasse;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+    
+    public static Client rechrcheClientParPseudo(String pseudo){
+        return new Client("Dupon", "Marie", pseudo, "123456");
+    }
+    
 }

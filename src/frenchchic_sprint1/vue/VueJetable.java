@@ -2,6 +2,8 @@ package frenchchic_sprint1.vue;
 
 import frenchchic_sprint1.controleur.Session;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -9,7 +11,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 // vue jetable
-public class VueJetable extends JFrame {
+public class VueJetable extends JFrame implements ActionListener {
 
     private JLabel lbTitle;
     private JTextField tfUsername;
@@ -47,7 +49,7 @@ public class VueJetable extends JFrame {
         JLabel appTitle = new JLabel("French Chic");
         appTitle.setBounds(300, 10, 360, 25);
         this.add(appTitle);
-        
+
         JLabel userLabel = new JLabel("Username");
         userLabel.setBounds(10, 10, 80, 25);
         this.add(userLabel);
@@ -65,7 +67,15 @@ public class VueJetable extends JFrame {
         this.add(passwordText);
 
         JButton loginButton = new JButton("S'identifier");
+        loginButton.addActionListener(this);
         loginButton.setBounds(10, 80, 160, 25);
         this.add(loginButton);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == btnLogin){
+            System.out.println(tfUsername.getText());
+        }
     }
 }
