@@ -18,6 +18,7 @@ public class EcranAccueilPerso extends JFrame {
         setWindow();
     }
 
+
     private void setWindow() {
         this.setTitle("French Chic | Accueil Perso");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,6 +30,7 @@ public class EcranAccueilPerso extends JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
+
 
     private void placeComponents() {
         this.setLayout(null);
@@ -46,5 +48,4 @@ public class EcranAccueilPerso extends JFrame {
         this.add(lbProduct);
 
     }
-
 }

@@ -50,10 +50,10 @@ public class Session {
             windows[i].dispose();
         }
         if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL) {
-            new VueJetable().setVisible(true);
+            new VueJetable();
         }
         if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL_PERSO) {
-            new EcranAccueilPerso().setVisible(true);
+            new EcranAccueilPerso();
         }
     }
 
