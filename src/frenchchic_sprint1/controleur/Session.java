@@ -49,7 +49,7 @@ public class Session {
 
     public void traiterIdentificatin(String pseudo, String password) {
         System.out.println("inf given " + pseudo + " " + password);
-        if (pseudo == "marie" && password == "123456") {
+        if ("marie".equals(pseudo) && "123456".equals(password)) {
             clientSession = Client.rechrcheClientParPseudo(pseudo);
             this.setTypeEcran(TypeEcran.ECRAN_ACCUEIL_PERSO);
             
