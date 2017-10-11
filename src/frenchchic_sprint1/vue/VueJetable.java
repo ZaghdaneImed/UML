@@ -2,6 +2,7 @@ package frenchchic_sprint1.vue;
 
 import frenchchic_sprint1.controleur.Session;
 import frenchchic_sprint1.metier.Client;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +14,7 @@ import javax.swing.JTextField;
 
 // vue jetable
 public class VueJetable extends JFrame implements ActionListener {
+
     public static Session session = new Session();
     private JLabel lbTitle;
     private JTextField tfUsername;
@@ -24,60 +26,65 @@ public class VueJetable extends JFrame implements ActionListener {
     private boolean succeeded;
 
     public VueJetable() {
-        this.setTitle("French Chic");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setPreferredSize(new Dimension(500, 400));
-        this.setLocation(200, 200);
-        this.placeComponents();
-        this.setVisible(true);
-        this.setResizable(false);
-        this.pack();
+        setWindow();
     }
 
     public static void main(String[] args) {
-
         demarrageApplication();
     }
 
     public static void demarrageApplication() {
-        
-        session.traiterConnexion();
+
+        Session.traiterConnexion();
+    }
+
+    private void setWindow() {
+        this.setTitle("French Chic | Login");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.getContentPane().setBackground(Color.WHITE);
+        this.setPreferredSize(new Dimension(550, 400));
+        this.placeComponents();
+        this.setResizable(false);
+        this.pack();
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     private void placeComponents() {
         this.setLayout(null);
 
-        JLabel appTitle = new JLabel("French Chic");
-        appTitle.setBounds(300, 10, 360, 25);
-        this.add(appTitle);
+        lbTitle = new JLabel("<html><span style='font-weight: lighter; font-family: \"MS Sans Serif\"; font-size: 40px; color: #CC00CC;'>French Chic</span></html>", (int) CENTER_ALIGNMENT);
+        lbTitle.setBounds(0, 0, 500, 150);
+        this.add(lbTitle);
 
-        JLabel userLabel = new JLabel("Username");
-        userLabel.setBounds(10, 10, 80, 25);
-        this.add(userLabel);
+        lbUsername = new JLabel("Pseudo");
+        lbUsername.setBounds(155, 150, 80, 30);
+        this.add(lbUsername);
 
         tfUsername = new JTextField(20);
-        tfUsername.setBounds(100, 10, 160, 25);
+        tfUsername.setBounds(250, 150, 160, 30);
         this.add(tfUsername);
 
-        JLabel passwordLabel = new JLabel("Password");
-        passwordLabel.setBounds(10, 40, 80, 25);
-        this.add(passwordLabel);
+        lbPassword = new JLabel("Password");
+        lbPassword.setBounds(150, 190, 80, 30);
+        this.add(lbPassword);
 
         pfPassword = new JPasswordField(20);
-        pfPassword.setBounds(100, 40, 160, 25);
+        pfPassword.setBounds(250, 190, 160, 30);
         this.add(pfPassword);
 
         btnLogin = new JButton("S'identifier");
+        btnLogin.setBackground(Color.lightGray);
+        btnLogin.setBorder(null);
         btnLogin.addActionListener(this);
-        btnLogin.setBounds(10, 80, 160, 25);
+        btnLogin.setBounds(200, 280, 160, 30);
         this.add(btnLogin);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == btnLogin){
+        if (e.getSource() == btnLogin) {
             Session.clientSession = new Client("", "", tfUsername.getText(), String.valueOf(pfPassword.getPassword()));
-            System.out.println(Session.clientSession.getPseudo() + " / " + Session.clientSession.getMotDePasse());
             session.traiterIdentificatin(Session.clientSession.getPseudo(), Session.clientSession.getMotDePasse());
         }
     }
