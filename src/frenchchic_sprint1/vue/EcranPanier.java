@@ -17,8 +17,9 @@ public class EcranPanier extends javax.swing.JFrame {
      * Creates new form EcranPanier
      */
     public EcranPanier() {
+        this.setVisible(true);
         initComponents();
-         
+
     }
 
     /**
