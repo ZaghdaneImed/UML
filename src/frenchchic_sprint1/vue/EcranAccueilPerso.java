@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class EcranAccueilPerso extends JFrame implements ActionListener{
-    
+    public static Session session = new Session();
     private Produit dayProduct;
     private JLabel lbTitle;
     private JLabel lbWelcome;
@@ -79,7 +79,7 @@ public class EcranAccueilPerso extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnAddProduct) {
             Session.clientSession.getPanier().getListProduit().put(dayProduct, Integer.parseInt(tfQt.getText()));
-            Session.traiterAjoutPanier();
+            session.traiterAjoutPanier();
         }
     }
 }
