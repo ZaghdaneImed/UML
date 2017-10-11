@@ -5,6 +5,7 @@
  */
 package frenchchic_sprint1.metier;
 
+import frenchchic_sprint1.controleur.Panier;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -18,7 +19,7 @@ public class Client {
     private String prenom;
     private String pseudo;
     private String motDePasse;
-    private Collection<Produit> panier;
+    private Panier panier;
 
     public String getPseudo() {
         return pseudo;
@@ -29,7 +30,7 @@ public class Client {
         this.prenom = prenom;
         this.pseudo = pseudo;
         this.motDePasse = motDePasse;
-        this.panier = new ArrayList<>();
+        this.panier = new Panier();
     }
 
     public String getNom() {
@@ -46,6 +47,10 @@ public class Client {
 
     public static Client rechrcheClientParPseudo(String pseudo) {
         return new Client("Dupon", "Marie", pseudo, "123456");
+    }
+
+    public Panier getPanier() {
+        return panier;
     }
 
 }
