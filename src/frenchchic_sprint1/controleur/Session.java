@@ -11,7 +11,8 @@ public class Session {
 
     public enum TypeEcran {
         ECRAN_ACCUEIL,
-        ECRAN_ACCUEIL_PERSO
+        ECRAN_ACCUEIL_PERSO,
+        ECRAN_PANIER
 
     }
     private TypeEcran typeEcran;
@@ -54,6 +55,10 @@ public class Session {
         }
         if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL_PERSO) {
             new EcranAccueilPerso();
+        }
+        if (this.getTypeEcran()== TypeEcran.ECRAN_PANIER)
+        {
+             new EcranPanier();
         }
     }
 
