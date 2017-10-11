@@ -15,6 +15,10 @@ public class Client {
     private String pseudo;
     private String motDePasse;
 
+    public String getPseudo() {
+        return pseudo;
+    }
+
     public Client(String nom, String prenom, String pseudo, String motDePasse) {
         this.nom = nom;
         this.prenom = prenom;
@@ -28,6 +32,10 @@ public class Client {
 
     public String getPrenom() {
         return prenom;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
     }
     
     public static Client rechrcheClientParPseudo(String pseudo){

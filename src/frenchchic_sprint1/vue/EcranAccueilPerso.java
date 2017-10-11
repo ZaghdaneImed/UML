@@ -75,8 +75,7 @@ public class EcranAccueilPerso extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                System.out.println(Session.clientSession.getNom());
-                System.out.println(Session.clientSession.getPrenom());
+                System.out.println("Bonjour " + Session.clientSession.getNom() + " " + Session.clientSession.getPrenom());
                 new EcranAccueilPerso().setVisible(true);
             }
         });

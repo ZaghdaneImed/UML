@@ -6,7 +6,9 @@ import frenchchic_sprint1.vue.VueJetable;
 import java.awt.Window;
 
 public class Session {
+
     public static Client clientSession;
+
     public enum TypeEcran {
         ECRAN_ACCUEIL,
         ECRAN_ACCUEIL_PERSO
@@ -21,7 +23,7 @@ public class Session {
     public Session() {
         typeEcran = TypeEcran.ECRAN_ACCUEIL;
     }
-    
+
     public static void traiterConnexion() {
         Session session = new Session();
         if (session.getTypeEcran() == Session.TypeEcran.ECRAN_ACCUEIL) {
@@ -37,21 +39,23 @@ public class Session {
         for (int i = 0; i < windows.length; i++) {
             windows[i].dispose();
         }
-        if (this.getTypeEcran() == Session.TypeEcran.ECRAN_ACCUEIL) {
+        if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL) {
             VueJetable.getWindows()[0].setVisible(true);
         }
-        if (this.getTypeEcran() == Session.TypeEcran.ECRAN_ACCUEIL_PERSO) {
-            EcranAccueilPerso.getWindows()[0].setVisible(true);
+        if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL_PERSO) {
+            new EcranAccueilPerso().setVisible(true);
         }
     }
 
-    public TypeEcran traiterIdentificatin(String pseudo, String password) {
+    public void traiterIdentificatin(String pseudo, String password) {
+        System.out.println("inf given " + pseudo + " " + password);
         if (pseudo == "marie" && password == "123456") {
-            this.clientSession = Client.rechrcheClientParPseudo(pseudo);
-            this.setTypeEcran(Session.TypeEcran.ECRAN_ACCUEIL_PERSO);
-            new EcranAccueilPerso();
+            clientSession = Client.rechrcheClientParPseudo(pseudo);
+            this.setTypeEcran(TypeEcran.ECRAN_ACCUEIL_PERSO);
+            
+        } else {
+            System.out.println("not logged in");
         }
-        return null;
     }
 
 }
