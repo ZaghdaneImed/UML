@@ -34,22 +34,23 @@ public class Session {
             new VueJetable();
         }
     }
-    
+
     public void traiterIdentificatin(String pseudo, String password) {
         if ("marie".equals(pseudo) && "123456".equals(password)) {
             clientSession = Client.rechrcheClientParPseudo(pseudo);
             this.setTypeEcran(TypeEcran.ECRAN_ACCUEIL_PERSO);
-            
+
         } else {
             System.out.println("not logged in");
         }
     }
+
     public void traiterAjoutPanier() {
-       
-            this.setTypeEcran(TypeEcran.ECRAN_PANIER);
-            
-       
+
+        this.setTypeEcran(TypeEcran.ECRAN_PANIER);
+
     }
+
     public void setTypeEcran(TypeEcran typeEcran) {
         this.typeEcran = typeEcran;
         Window[] windows = Window.getWindows();
@@ -62,12 +63,9 @@ public class Session {
         if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL_PERSO) {
             new EcranAccueilPerso();
         }
-        if (this.getTypeEcran()== TypeEcran.ECRAN_PANIER)
-        {
-             new EcranPanier();
+        if (this.getTypeEcran() == TypeEcran.ECRAN_PANIER) {
+            new EcranPanier();
         }
     }
-
-
 
 }
