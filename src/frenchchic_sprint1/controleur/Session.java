@@ -2,6 +2,7 @@ package frenchchic_sprint1.controleur;
 
 import frenchchic_sprint1.metier.Client;
 import frenchchic_sprint1.vue.EcranAccueilPerso;
+import frenchchic_sprint1.vue.EcranPanier;
 import frenchchic_sprint1.vue.VueJetable;
 import java.awt.Window;
 
@@ -11,7 +12,8 @@ public class Session {
 
     public enum TypeEcran {
         ECRAN_ACCUEIL,
-        ECRAN_ACCUEIL_PERSO
+        ECRAN_ACCUEIL_PERSO,
+        ECRAN_PANIER
 
     }
     private TypeEcran typeEcran;
@@ -42,7 +44,12 @@ public class Session {
             System.out.println("not logged in");
         }
     }
-    
+    public void traiterAjoutPanier() {
+       
+            this.setTypeEcran(TypeEcran.ECRAN_PANIER);
+            
+       
+    }
     public void setTypeEcran(TypeEcran typeEcran) {
         this.typeEcran = typeEcran;
         Window[] windows = Window.getWindows();
@@ -54,6 +61,10 @@ public class Session {
         }
         if (this.getTypeEcran() == TypeEcran.ECRAN_ACCUEIL_PERSO) {
             new EcranAccueilPerso();
+        }
+        if (this.getTypeEcran()== TypeEcran.ECRAN_PANIER)
+        {
+             new EcranPanier();
         }
     }
 
