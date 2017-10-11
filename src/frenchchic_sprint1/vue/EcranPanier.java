@@ -5,6 +5,8 @@
  */
 package frenchchic_sprint1.vue;
 
+import frenchchic_sprint1.controleur.Session;
+
 /**
  *
  * @author USER
@@ -16,6 +18,7 @@ public class EcranPanier extends javax.swing.JFrame {
      */
     public EcranPanier() {
         initComponents();
+         
     }
 
     /**

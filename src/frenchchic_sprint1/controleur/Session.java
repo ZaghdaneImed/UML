@@ -2,6 +2,7 @@ package frenchchic_sprint1.controleur;
 
 import frenchchic_sprint1.metier.Client;
 import frenchchic_sprint1.vue.EcranAccueilPerso;
+import frenchchic_sprint1.vue.EcranPanier;
 import frenchchic_sprint1.vue.VueJetable;
 import java.awt.Window;
 
@@ -43,7 +44,12 @@ public class Session {
             System.out.println("not logged in");
         }
     }
-    
+    public void traiterAjoutPanier() {
+       
+            this.setTypeEcran(TypeEcran.ECRAN_PANIER);
+            
+       
+    }
     public void setTypeEcran(TypeEcran typeEcran) {
         this.typeEcran = typeEcran;
         Window[] windows = Window.getWindows();
