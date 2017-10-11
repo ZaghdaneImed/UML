@@ -79,7 +79,7 @@ public class EcranAccueilPerso extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnAddProduct) {
             System.out.println("add to panier");
-            Session.clientSession.getPanier().getListProduit().add(dayProduct);
+            Session.clientSession.getPanier().getListProduit().put(dayProduct, Integer.parseInt(tfQt.getText()));
         }
     }
 }
