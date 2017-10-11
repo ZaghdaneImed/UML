@@ -4,4 +4,5 @@ import java.util.ArrayList;
 
 public class Panier {
     private ArrayList<Produit> listProduit;
+    
 }
