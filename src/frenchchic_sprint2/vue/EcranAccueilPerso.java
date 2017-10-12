@@ -1,7 +1,7 @@
-package frenchchic_sprint1.vue;
+package frenchchic_sprint2.vue;
 
-import frenchchic_sprint1.controleur.Session;
-import frenchchic_sprint1.metier.Produit;
+import frenchchic_sprint2.controleur.Session;
+import frenchchic_sprint2.metier.Produit;
 import java.awt.Color;
 import static java.awt.Component.CENTER_ALIGNMENT;
 import java.awt.Dimension;

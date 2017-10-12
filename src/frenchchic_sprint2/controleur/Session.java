@@ -1,9 +1,9 @@
-package frenchchic_sprint1.controleur;
+package frenchchic_sprint2.controleur;
 
-import frenchchic_sprint1.metier.Client;
-import frenchchic_sprint1.vue.EcranAccueilPerso;
-import frenchchic_sprint1.vue.EcranPanier;
-import frenchchic_sprint1.vue.VueJetable;
+import frenchchic_sprint2.metier.Client;
+import frenchchic_sprint2.vue.EcranAccueilPerso;
+import frenchchic_sprint2.vue.EcranPanier;
+import frenchchic_sprint2.vue.VueJetable;
 import java.awt.Window;
 
 public class Session {

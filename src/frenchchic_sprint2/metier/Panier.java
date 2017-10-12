@@ -1,6 +1,6 @@
-package frenchchic_sprint1.controleur;
+package frenchchic_sprint2.metier;
 
-import frenchchic_sprint1.metier.Produit;
+import frenchchic_sprint2.metier.Produit;
 import java.util.HashMap;
 import java.util.Map;
 

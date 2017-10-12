@@ -1,7 +1,7 @@
-package frenchchic_sprint1.vue;
+package frenchchic_sprint2.vue;
 
-import frenchchic_sprint1.controleur.Session;
-import frenchchic_sprint1.metier.Client;
+import frenchchic_sprint2.controleur.Session;
+import frenchchic_sprint2.metier.Client;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;

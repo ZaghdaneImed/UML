@@ -1,4 +1,4 @@
-package frenchchic_sprint1.metier;
+package frenchchic_sprint2.metier;
 
 public class Produit {
 
