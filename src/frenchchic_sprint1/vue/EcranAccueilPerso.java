@@ -13,21 +13,21 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class EcranAccueilPerso extends JFrame implements ActionListener{
+public class EcranAccueilPerso extends JFrame implements ActionListener {
+
     private Produit dayProduct;
     private JLabel lbTitle;
     private JLabel lbWelcome;
     private JLabel lbProduct;
     private JTextField tfQt;
-    
+
     private JButton btnAddProduct;
 
-    public EcranAccueilPerso() throws HeadlessException {
-        
+    public EcranAccueilPerso() {
+
         dayProduct = new Produit("pantalon zouk", 100);
         setWindow();
     }
-
 
     private void setWindow() {
         this.setTitle("French Chic | Accueil Perso");
@@ -41,30 +41,29 @@ public class EcranAccueilPerso extends JFrame implements ActionListener{
         this.setLocationRelativeTo(null);
     }
 
-
     private void placeComponents() {
         this.setLayout(null);
 
         lbTitle = new JLabel("<html><span style='font-weight: lighter; font-family: \"MS Sans Serif\"; font-size: 40px; color: #CC00CC;'>French Chic</span></html>", (int) CENTER_ALIGNMENT);
         lbTitle.setBounds(0, 0, 500, 150);
         this.add(lbTitle);
-        
+
         lbWelcome = new JLabel("<html><span style='font-weight: lighter; font-family: \"MS Sans Serif\"; font-size: 12px;'>Bonjour " + Session.clientSession.getPrenom() + " " + Session.clientSession.getNom() + "</span></html>");
         lbWelcome.setBounds(110, 150, 200, 30);
         this.add(lbWelcome);
-        
+
         lbProduct = new JLabel("Le produit du jour est le " + dayProduct.getNomProduit() + " au prix HT de " + dayProduct.getPrixHT() + "€");
         lbProduct.setBounds(110, 190, 350, 30);
         this.add(lbProduct);
-        
+
         lbProduct = new JLabel("Quantité");
         lbProduct.setBounds(220, 260, 60, 30);
         this.add(lbProduct);
-        
+
         tfQt = new JTextField(20);
         tfQt.setBounds(290, 260, 40, 30);
         this.add(tfQt);
-        
+
         btnAddProduct = new JButton("Ajouter le produit du jour au panier");
         btnAddProduct.setBackground(Color.lightGray);
         btnAddProduct.setBorder(null);
@@ -77,8 +76,12 @@ public class EcranAccueilPerso extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnAddProduct) {
-            Session.clientSession.getPanier().getListProduit().put(dayProduct, Integer.parseInt(tfQt.getText()));
-            VueJetable.session.traiterAjoutPanier();
+            if (!tfQt.getText().isEmpty()) {
+                Session.clientSession.getPanier().getListProduit().put(dayProduct, Integer.parseInt(tfQt.getText()));
+                VueJetable.session.traiterAjoutPanier();
+            } else {
+                System.out.println("err: il faut donner une Qt!");
+            }
         }
     }
 }
